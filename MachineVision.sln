@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineVision", "MachineVision\MachineVision.csproj", "{9AF62CAB-BBC7-4DD6-9B77-4112F65C4B5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AF62CAB-BBC7-4DD6-9B77-4112F65C4B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF62CAB-BBC7-4DD6-9B77-4112F65C4B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF62CAB-BBC7-4DD6-9B77-4112F65C4B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF62CAB-BBC7-4DD6-9B77-4112F65C4B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1ECA3C1-B8BE-4EB8-902C-F0E72DE66B7D}
+	EndGlobalSection
+EndGlobal
