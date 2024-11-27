@@ -5,20 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MachineVision"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-    <Grid>
+        Title="MainWindow" Height="600" Width="1026">
+    <Grid HorizontalAlignment="Center" Width="1026">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="145*"/>
+            <RowDefinition Height="69*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="416*"/>
+            <ColumnDefinition Width="163*"/>
+            <ColumnDefinition Width="447*"/>
+        </Grid.ColumnDefinitions>
         <!-- Элемент для отображения изображения с веб-камеры -->
 
         <!-- Текстовый блок для вывода координа  нат -->
-        <TextBlock Name="CoordinatesTextBlock" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" />
+        <TextBlock Name="CoordinatesTextBlock" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,26,0,0" Height="21" Width="0" Grid.Row="1" />
 
         <!-- Кнопка для ручного запуска анализа -->
-        <Button Content="Запустить Анализ" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,100" />
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="120"/>
-        <Image x:Name="CameraImage" Stretch="Uniform" HorizontalAlignment="Left" Height="434" Margin="194,52,0,0" VerticalAlignment="Top" Width="574"/>
+        <Button Content="Запустить Анализ" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,241,0,0" Grid.Column="1" Grid.Row="1" />
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.Column="1"/>
+        <Image x:Name="CameraImage" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Stretch="UniformToFill" Height="0" Width="0"/>
         <Button x:Name="StartButton" Content="Start Camera" VerticalAlignment="Top"
-                   Click="StartButton_Click" Margin="0,528,0,0"/>
-        <Button x:Name="StopButton" Content="Stop Camera" VerticalAlignment="Top"
-           Click="StopButton_Click" Margin="0,564,0,0"/>
+                   Click="StartButton_Click" Margin="92,58,92,0" Height="20"/>
+        <Button x:Name="StopButton" Content="Stop Camera" VerticalAlignment="Center"
+           Click="StopButton_Click" Margin="103,0,103,0" Height="20" Grid.Row="2"/>
+
     </Grid>
 </Window>

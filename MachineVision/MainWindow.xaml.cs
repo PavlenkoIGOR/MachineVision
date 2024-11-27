@@ -85,7 +85,7 @@ namespace MachineVision
                 }));
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
