@@ -6,30 +6,54 @@
         xmlns:local="clr-namespace:MachineVision"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1026">
-    <Grid HorizontalAlignment="Center" Width="1026">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="78*"/>
-            <RowDefinition Height="145*"/>
-            <RowDefinition Height="69*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="416*"/>
-            <ColumnDefinition Width="163*"/>
-            <ColumnDefinition Width="447*"/>
-        </Grid.ColumnDefinitions>
-        <!-- Элемент для отображения изображения с веб-камеры -->
+    <StackPanel>
+        <Menu Height="40">
+            <MenuItem Cursor="Hand" Header="Файл">
 
-        <!-- Текстовый блок для вывода координа  нат -->
-        <TextBlock Name="CoordinatesTextBlock" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,26,0,0" Height="21" Width="0" Grid.Row="1" />
+            </MenuItem>
 
-        <!-- Кнопка для ручного запуска анализа -->
-        <Button Content="Запустить Анализ" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,241,0,0" Grid.Column="1" Grid.Row="1" />
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.Column="1"/>
-        <Image x:Name="CameraImage" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Stretch="UniformToFill" Height="0" Width="0"/>
-        <Button x:Name="StartButton" Content="Start Camera" VerticalAlignment="Top"
-                   Click="StartButton_Click" Margin="92,58,92,0" Height="20"/>
-        <Button x:Name="StopButton" Content="Stop Camera" VerticalAlignment="Center"
-           Click="StopButton_Click" Margin="103,0,103,0" Height="20" Grid.Row="2"/>
+        </Menu>
+        <Grid 
+        VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+        Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="78*"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="69*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="49*"/>
+                <ColumnDefinition Width="114*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Элемент для отображения изображения с веб-камеры -->
 
-    </Grid>
+            <!-- Текстовый блок для вывода координа  нат -->
+            <TextBlock x:Name="CoordinatesTextBlock" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,26,0,0" Height="21" Width="0" Grid.Row="1" />
+
+            <!-- Кнопка для ручного запуска анализа -->
+            <Button Content="Запустить Анализ" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,241,0,0" Grid.Column="1" Grid.Row="1" />
+            <ComboBox x:Name="comboBox1" 
+                      HorizontalAlignment="Stretch"
+                      Margin="0,58,0,0"
+                      VerticalAlignment="Stretch"
+                      Width="120" Height="22" Grid.Column="1" Grid.Row="1"/>
+            <Image x:Name="CameraImage"                
+               Margin="0,0,0,0" Grid.RowSpan="2"/>
+            <StackPanel Orientation="Horizontal" Height="40" Margin="0"
+                        Grid.Row="2" Grid.Column="0">
+                <Button x:Name="StartButton" Content="Start Camera" 
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Left"
+                        Click="StartButton_Click"
+                        Width="300"
+                        />
+                <Button x:Name="StopButton" Content="Stop Camera"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Right"
+                        Width="300"
+                        Click="StopButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </Window>

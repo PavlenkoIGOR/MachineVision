@@ -10,6 +10,7 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace MachineVision
 {
@@ -18,6 +19,7 @@ namespace MachineVision
     /// </summary>
     public partial class MainWindow : Window
     {
+        Image _image;
         // Импортируем GDI метод для освобождения HBitmap
         [DllImport("gdi32.dll")]
         private static extern bool DeleteObject(IntPtr hObject);
@@ -66,12 +68,12 @@ namespace MachineVision
         private void videoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             // Получаем текущий кадр
-            var image = (Bitmap)eventArgs.Frame.Clone();
+            _image = (Bitmap)eventArgs.Frame.Clone();
 
             try
             {
                 MemoryStream ms = new MemoryStream();
-                image.Save(ms, ImageFormat.Bmp);
+                _image.Save(ms, ImageFormat.Bmp);
                 ms.Seek(0, SeekOrigin.Begin);
                 BitmapImage bi = new BitmapImage();
                 bi.BeginInit();
@@ -98,8 +100,31 @@ namespace MachineVision
             if (videoSource != null && videoSource.IsRunning)
             {
                 videoSource.SignalToStop(); // Остановка захвата
-                videoSource.WaitForStop(); // Ждем завершения потока
+                videoSource.WaitForStop(); // Ожидание завершения потока
+
+                // Сохранение последнего кадра как JPG
+                if (_image != null)
+                {
+                    string[] filenames = { @"D:\", "sshots", "last_frame.jpg" };
+                    string filePath = Path.Combine(filenames);
+                  
+                    _image.Save(filePath, ImageFormat.Jpeg); // Сохранение как JPG
+                    MessageBox.Show($"Кадр сохранен: {filePath}");
+                }
+                else
+                {
+                    MessageBox.Show("Нет кадров для сохранения.");
+                }
             }
+        }
+
+        private void FindBlackSquares(Bitmap lastFrame)
+        {
+            
+
+            //// Освобождайте неиспользуемые ресурсы (если необходимо)
+            //grayBitmap.Dispose();
+            //binaryBitmap.Dispose();
         }
     }
 }
